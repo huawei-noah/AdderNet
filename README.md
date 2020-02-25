@@ -13,15 +13,17 @@ We present adder networks (AdderNets) to trade massive multiplications in deep n
 - pytorch >= 1.1.0
 - torchvision
 
+### Preparation
+You can follow [pytorch/examples](https://github.com/pytorch/examples/tree/master/imagenet) to prepare the ImageNet data.
+
+The pretrained model can be downloaded [here](https://drive.google.com/drive/folders/1l29pUo4lgrnYxAbZDyHRrriuHOKPUe_Z?usp=sharing)
+
 ### Usage
 Run `python test.py --data_dir 'path/to/imagenet_root/'` to evaluate on ImageNet `val` set. You will achieve 74.9% Top accuracy and 91.7% Top-5 accuracy on the ImageNet dataset using ResNet-50.
 
 Run `python test.py --dataset cifar10 --model_dir models/ResNet20-AdderNet.pth --data_dir 'path/to/cifar10_root/'` to evaluate on CIFAR-10. You will achieve 91.8% accuracy on the CIFAR-10 dataset using ResNet-20.
 
 The inference of AdderNets is slow since the adder filters is implemented by `torch.cdist`. You can write [cuda](https://docs.nvidia.com/cuda/cuda-samples/index.html) to achieve higher inference speed. 
-
-### Data Preparation
-You can follow [pytorch/examples](https://github.com/pytorch/examples/tree/master/imagenet) to prepare the ImageNet data.
 
 ## Citation
 	@article{AdderNet,
