@@ -1,7 +1,7 @@
 # 2020.01.10-Replaced conv with adder
 #            Huawei Technologies Co., Ltd. <foss@huawei.com>
 
-1mport torch.nn as nn
+import torch.nn as nn
 import adder
 
 
