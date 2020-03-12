@@ -1,5 +1,5 @@
 # AdderNet: Do We Really Need Multiplications in Deep Learning?
-This code is an inference demo of CVPR 2020 paper [AdderNet: Do We Really Need Multiplications in Deep Learning?](https://arxiv.org/pdf/1912.13200.pdf) The inference model will be released soon.
+This code is an inference demo of CVPR 2020 paper [AdderNet: Do We Really Need Multiplications in Deep Learning?](https://arxiv.org/pdf/1912.13200.pdf) 
 
 We present adder networks (AdderNets) to trade massive multiplications in deep neural networks, especially convolutional neural networks (CNNs), for much cheaper additions to reduce computation costs. In AdderNets, we take the L1-norm distance between filters and input feature as the output response. As a result, the proposed AdderNets can achieve 74.9% Top-1 accuracy 91.7% Top-5 accuracy using ResNet-50 on the ImageNet dataset without any multiplication in convolution layer.
 
@@ -16,7 +16,7 @@ We present adder networks (AdderNets) to trade massive multiplications in deep n
 ### Preparation
 You can follow [pytorch/examples](https://github.com/pytorch/examples/tree/master/imagenet) to prepare the ImageNet data.
 
-The pretrained model will be released soon.
+The pretrained model can be downloaded [here](https://drive.google.com/drive/folders/1l29pUo4lgrnYxAbZDyHRrriuHOKPUe_Z?usp=sharing)
 
 ### Usage
 Run `python test.py --data_dir 'path/to/imagenet_root/'` to evaluate on ImageNet `val` set. You will achieve 74.9% Top accuracy and 91.7% Top-5 accuracy on the ImageNet dataset using ResNet-50.
