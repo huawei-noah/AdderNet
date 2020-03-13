@@ -16,7 +16,7 @@ We present adder networks (AdderNets) to trade massive multiplications in deep n
 ### Preparation
 You can follow [pytorch/examples](https://github.com/pytorch/examples/tree/master/imagenet) to prepare the ImageNet data.
 
-The pretrained model can be downloaded [here](https://drive.google.com/drive/folders/1l29pUo4lgrnYxAbZDyHRrriuHOKPUe_Z?usp=sharing)
+The pretrained model will be released soon.
 
 ### Usage
 Run `python test.py --data_dir 'path/to/imagenet_root/'` to evaluate on ImageNet `val` set. You will achieve 74.9% Top accuracy and 91.7% Top-5 accuracy on the ImageNet dataset using ResNet-50.
