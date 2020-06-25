@@ -25,13 +25,26 @@ def adder2d_function(X, W, stride=1, padding=0):
     X_col = X_col.permute(1,2,0).contiguous().view(X_col.size(1),-1)
     W_col = W.view(n_filters, -1)
     
-    out = -torch.cdist(W_col,X_col.transpose(0,1),1)
+    out = adder.apply(W_col,X_col)
     
     out = out.view(n_filters, h_out, w_out, n_x)
     out = out.permute(3, 0, 1, 2).contiguous()
     
     return out
 
+class adder(Function):
+    @staticmethod
+    def forward(ctx, W_col, X_col):
+        ctx.save_for_backward(W_col,X_col)
+        output = -(W_col.unsqueeze(2)-X_col.unsqueeze(0)).abs().sum(1)
+        return output
+
+    @staticmethod
+    def backward(ctx,grad_output):
+        W_col,X_col = ctx.saved_tensors
+        grad_W_col = ((X_col.unsqueeze(0)-W_col.unsqueeze(2))*grad_output.unsqueeze(1)).sum(2)
+        grad_W_col = grad_W_col/grad_W_col.norm(p=2).clamp(min=1e-12)*math.sqrt(W_col.size(1)*W_col.size(0))/5
+        grad_X_col = (-(X_col.unsqueeze(0)-W_col.unsqueeze(2)).clamp(-1,1)*grad_output.unsqueeze(1)).sum(0)
     
 class adder2d(nn.Module):
 
