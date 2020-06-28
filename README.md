@@ -3,6 +3,11 @@ This code is a demo of CVPR 2020 paper [AdderNet: Do We Really Need Multiplicati
 
 We present adder networks (AdderNets) to trade massive multiplications in deep neural networks, especially convolutional neural networks (CNNs), for much cheaper additions to reduce computation costs. In AdderNets, we take the L1-norm distance between filters and input feature as the output response. As a result, the proposed AdderNets can achieve 74.9% Top-1 accuracy 91.7% Top-5 accuracy using ResNet-50 on the ImageNet dataset without any multiplication in convolution layer.
 
+
+### UPDATE: The training code is released in 6/28.
+
+Run `python main.py` to train on CIFAR-10. 
+
 <p align="center">
 <img src="figures/visualization.png" width="800">
 </p>
@@ -19,7 +24,7 @@ You can follow [pytorch/examples](https://github.com/pytorch/examples/tree/maste
 The pretrained models are available in [google drive](https://drive.google.com/drive/folders/11ZdIst5Vwqx9Y5zHhirfaI94_7RhcBZH?usp=sharing) or [baidu cloud](https://pan.baidu.com/s/1pkaWhhKVoWPv-MCUjvxzCw) (access code:126b)
 
 ### Usage
-Run `python main.py'` to train on CIFAR-10. 
+Run `python main.py` to train on CIFAR-10. 
 
 Run `python test.py --data_dir 'path/to/imagenet_root/'` to evaluate on ImageNet `val` set. You will achieve 74.9% Top accuracy and 91.7% Top-5 accuracy on the ImageNet dataset using ResNet-50.
 
