@@ -11,9 +11,66 @@ Run `python main.py` to train on CIFAR-10.
 <p align="center">
 <img src="figures/visualization.png" width="800">
 </p>
+### UPDATE: Model Zoo about AdderNets are released in 11/27.
 
+Classification results on CIFAR-10 and CIFAR-100 datasets.
+
+| Model     | Method           | CIFAR-10 | CIFAR-100 |
+| --------- | ---------------- | -------- | --------- |
+| VGG-small | CNN              | 94.25%   | 75.96%    |
+|           | ANN [1]          | 93.72%   | 74.58%    |
+|           | PKKD ANN [2]     | 95.03%   | 76.94%    |
+|           |                  |          |           |
+| ResNet-20 | CNN              | 92.93%   | 68.75%    |
+|           | ANN              | 92.02%   | 67.60%    |
+|           | PKKD ANN         | 92.96%   | 69.93%    |
+|           | ShiftAddNet* [3] | 85.10%   | -         |
+|           |                  |          |           |
+| ResNet-32 | CNN              | 93.59%   | 70.46%    |
+|           | ANN              | 93.01%   | 69.17%    |
+|           | PKKD ANN         | 93.62%   | 72.41%    |
+
+Classification results on ImageNet dataset.
+
+| Model     | Method       | Top-1 Acc | Top-5 Acc |
+| --------- | ------------ | --------- | --------- |
+| ResNet-18 | CNN          | 69.8%     | 89.1%     |
+|           | ANN [1]      | 67.0%     | 87.6%     |
+|           | PKKD ANN [2] | 68.8%     | 88.6%     |
+|           |              |           |           |
+| ResNet-50 | CNN          | 76.2%     | 92.9%     |
+|           | ANN          | 74.9%     | 91.7%     |
+|           | PKKD ANN     | 76.8%     | 93.3%     |
+
+Super-Resolution results on several SR datasets.
+
+| Scale | Model | Method  | Set5 (PSNR/SSIM) | Set14 (PSNR/SSIM) | B100 (PSNR/SSIM) | Urban100 (PSNR/SSIM) |
+| ----- | ----- | ------- | ---------------- | ----------------- | ---------------- | -------------------- |
+| ×2    | VDSR  | CNN     | 37.53/0.9587     | 33.03/0.9124      | 31.90/0.8960     | 30.76/0.9140         |
+|       |       | ANN [4] | 37.37/0.9575     | 32.91/0.9112      | 31.82/0.8947     | 30.48/0.9099         |
+|       | EDSR  | CNN     | 38.11/0.9601     | 33.92/0.9195      | 32.32/0.9013     | 32.93/0.9351         |
+|       |       | ANN     | 37.92/0.9589     | 33.82/0.9183      | 32.23/0.9000     | 32.63/0.9309         |
+| ×3    | VDSR  | CNN     | 33.66/0.9213     | 29.77/0.8314      | 28.82/0.7976     | 27.14/0.8279         |
+|       |       | ANN     | 33.47/0.9151     | 29.62/0.8276      | 28.72/0.7953     | 26.95/0.8189         |
+|       | EDSR  | CNN     | 34.65/0.9282     | 30.52/0.8462      | 29.25/0.8093     | 28.80/0.8653         |
+|       |       | ANN     | 34.35/0.9212     | 30.33/0.8420      | 29.13/0.8068     | 28.54/0.8555         |
+| ×4    | VDSR  | CNN     | 31.35/0.8838     | 28.01/0.7674      | 27.29/0.7251     | 25.18/0.7524         |
+|       |       | ANN     | 31.27/0.8762     | 27.93/0.7630      | 27.25/0.7229     | 25.09/0.7445         |
+|       | EDSR  | CNN     | 32.46/0.8968     | 28.80/0.7876      | 27.71/0.7420     | 26.64/0.8033         |
+|       |       | ANN     | 32.13/0.8864     | 28.57/0.7800      | 27.58/0.7368     | 26.33/0.7874         |
+
+*ShiftAddNet [3] used different training setting.
+
+[1]  **AdderNet: Do We Really Need Multiplications in Deep Learning?**  *Hanting Chen, Yunhe Wang, Chunjing Xu, Boxin Shi, Chao Xu, Qi Tian, Chang Xu.* **CVPR, 2020.**
+
+[2] **Kernel Based Progressive Distillation for Adder Neural Networks**. *Yixing Xu, Chang Xu, Xinghao Chen, Wei Zhang, Chunjing XU, Yunhe Wang.* **NeurIPS, 2020.**
+
+[3] **ShiftAddNet: A Hardware-Inspired Deep Network.** *Haoran You, Xiaohan Chen, Yongan Zhang, Chaojian Li, Sicheng Li, Zihao Liu, Zhangyang Wang, Yingyan Lin.* **NeurIPS, 2020.**
+
+[4] **AdderSR: Towards Energy Efficient Image Super-Resolution**. *Dehua Song, Yunhe Wang, Hanting Chen, Chang Xu, Chunjing Xu, Dacheng Tao*. **Arxiv, 2020.** 
 
 ## Requirements
+
 - python 3
 - pytorch >= 1.1.0
 - torchvision
