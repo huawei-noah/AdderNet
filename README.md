@@ -11,6 +11,7 @@ Run `python main.py` to train on CIFAR-10.
 <p align="center">
 <img src="figures/visualization.png" width="800">
 </p>
+
 ### UPDATE: Model Zoo about AdderNets are released in 11/27.
 
 Classification results on CIFAR-10 and CIFAR-100 datasets.
