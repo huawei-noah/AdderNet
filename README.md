@@ -62,9 +62,9 @@ Super-Resolution results on several SR datasets.
 
 *ShiftAddNet [3] used different training setting.
 
-[1]  **AdderNet: Do We Really Need Multiplications in Deep Learning?**  *Hanting Chen, Yunhe Wang, Chunjing Xu, Boxin Shi, Chao Xu, Qi Tian, Chang Xu.* **CVPR, 2020.**
+[1]  **AdderNet: Do We Really Need Multiplications in Deep Learning?**  *Hanting Chen, Yunhe Wang, Chunjing Xu, Boxin Shi, Chao Xu, Qi Tian, Chang Xu.* **CVPR, 2020. (Oral)**
 
-[2] **Kernel Based Progressive Distillation for Adder Neural Networks**. *Yixing Xu, Chang Xu, Xinghao Chen, Wei Zhang, Chunjing XU, Yunhe Wang.* **NeurIPS, 2020.**
+[2] **Kernel Based Progressive Distillation for Adder Neural Networks**. *Yixing Xu, Chang Xu, Xinghao Chen, Wei Zhang, Chunjing XU, Yunhe Wang.* **NeurIPS, 2020. (Spotlight)**
 
 [3] **ShiftAddNet: A Hardware-Inspired Deep Network.** *Haoran You, Xiaohan Chen, Yongan Zhang, Chaojian Li, Sicheng Li, Zihao Liu, Zhangyang Wang, Yingyan Lin.* **NeurIPS, 2020.**
 
