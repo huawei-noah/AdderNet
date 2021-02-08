@@ -25,7 +25,7 @@ Classification results on CIFAR-10 and CIFAR-100 datasets.
 | ResNet-20 | CNN              | 92.93%   | 68.75%    |
 |           | ANN              | 92.02%   | 67.60%    |
 |           | PKKD ANN         | 92.96%   | 69.93%    |
-|           | ShiftAddNet* [3] | 85.10%   | -         |
+|           | ShiftAddNet* [3] | 89.32%(160epoch)   | -         |
 |           |                  |          |           |
 | ResNet-32 | CNN              | 93.59%   | 70.46%    |
 |           | ANN              | 93.01%   | 69.17%    |
