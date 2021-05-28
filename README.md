@@ -18,17 +18,14 @@ Classification results on CIFAR-10 and CIFAR-100 datasets.
 
 | Model     | Method           | CIFAR-10 | CIFAR-100 |
 | --------- | ---------------- | -------- | --------- |
-| VGG-small | CNN              | 94.25%   | 75.96%    |
-|           | ANN [1]          | 93.72%   | 74.58%    |
+| VGG-small | ANN [1]          | 93.72%   | 74.58%    |
 |           | PKKD ANN [2]     | 95.03%   | 76.94%    |
 |           |                  |          |           |
-| ResNet-20 | CNN              | 92.93%   | 68.75%    |
-|           | ANN              | 92.02%   | 67.60%    |
+| ResNet-20 | ANN              | 92.02%   | 67.60%    |
 |           | PKKD ANN         | 92.96%   | 69.93%    |
 |           | ShiftAddNet* [3] | 89.32%(160epoch)   | -         |
 |           |                  |          |           |
-| ResNet-32 | CNN              | 93.59%   | 70.46%    |
-|           | ANN              | 93.01%   | 69.17%    |
+| ResNet-32 | ANN              | 93.01%   | 69.17%    |
 |           | PKKD ANN         | 93.62%   | 72.41%    |
 
 Classification results on ImageNet dataset.
