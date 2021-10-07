@@ -88,12 +88,15 @@ Run `python test.py --dataset cifar10 --model_dir models/ResNet20-AdderNet.pth -
 The inference and training of AdderNets is slow since the adder filters is implemented without cuda acceleration. You can write [cuda](https://docs.nvidia.com/cuda/cuda-samples/index.html) to achieve higher inference speed. 
 
 ## Citation
-	@article{AdderNet,
-		title={AdderNet: Do We Really Need Multiplications in Deep Learning?},
-		author={Chen, Hanting and Wang, Yunhe and Xu, Chunjing and Shi, Boxin and Xu, Chao and Tian, Qi and Xu, Chang},
-		journal={CVPR},
-		year={2020}
-	}
+	@ARTICLE{MIFFuse,
+	  author={Zhu, Depeng and Zhan, Weida and Jiang, Yichun and Xu, Xiaoyu and Guo, Renzhong},
+	  journal={IEEE Access}, 
+	  title={MIFFuse: A Multi-Level Feature Fusion Network for Infrared and Visible Images}, 
+	  year={2021},
+	  volume={9},
+	  number={},
+	  pages={130778-130792},
+	  doi={10.1109/ACCESS.2021.3111905}}
 
 ### Contributing
 We appreciate all contributions. If you are planning to contribute back bug-fixes, please do so without any further discussion.
