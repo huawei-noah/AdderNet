@@ -3,30 +3,28 @@ This code is a demo of CVPR 2020 paper [AdderNet: Do We Really Need Multiplicati
 
 We present adder networks (AdderNets) to trade massive multiplications in deep neural networks, especially convolutional neural networks (CNNs), for much cheaper additions to reduce computation costs. In AdderNets, we take the L1-norm distance between filters and input feature as the output response. As a result, the proposed AdderNets can achieve 74.9% Top-1 accuracy 91.7% Top-5 accuracy using ResNet-50 on the ImageNet dataset without any multiplication in convolution layer.
 
-
-### UPDATE: The training code is released in 6/28.
-
 Run `python main.py` to train on CIFAR-10. 
 
 <p align="center">
 <img src="figures/visualization.png" width="800">
 </p>
 
-### UPDATE: Model Zoo about AdderNets are released in 11/27.
-
 Classification results on CIFAR-10 and CIFAR-100 datasets.
 
 | Model     | Method           | CIFAR-10 | CIFAR-100 |
 | --------- | ---------------- | -------- | --------- |
-| VGG-small | ANN [1]          | 93.72%   | 74.58%    |
+| VGG-small | ANN [1]          | 93.72%   | 72.64%    |
 |           | PKKD ANN [2]     | 95.03%   | 76.94%    |
+|           | SLAC ANN [7]     | 93.96%   | 73.63%    |
 |           |                  |          |           |
 | ResNet-20 | ANN              | 92.02%   | 67.60%    |
 |           | PKKD ANN         | 92.96%   | 69.93%    |
+|           | SLAC ANN         | 92.29%   | 68.31%    |
 |           | ShiftAddNet* [3] | 89.32%(160epoch)   | -         |
 |           |                  |          |           |
 | ResNet-32 | ANN              | 93.01%   | 69.17%    |
 |           | PKKD ANN         | 93.62%   | 72.41%    |
+|           | SLAC ANN         | 93.24%   | 69.83%    |
 
 Classification results on ImageNet dataset.
 
@@ -35,17 +33,21 @@ Classification results on ImageNet dataset.
 | ResNet-18 | CNN          | 69.8%     | 89.1%     |
 |           | ANN [1]      | 67.0%     | 87.6%     |
 |           | PKKD ANN [2] | 68.8%     | 88.6%     |
+|           | SLAC ANN [7] | 67.7%     | 87.9%     |
 |           |              |           |           |
 | ResNet-50 | CNN          | 76.2%     | 92.9%     |
 |           | ANN          | 74.9%     | 91.7%     |
 |           | PKKD ANN     | 76.8%     | 93.3%     |
+|           | SLAC ANN [7] | 75.3%     | 92.6%     |
 
-Super-Resolution results on several SR datasets.
+*ShiftAddNet [3] used different training setting.
+
+Super-Resolution results on several SR datasets.[4]
 
 | Scale | Model | Method  | Set5 (PSNR/SSIM) | Set14 (PSNR/SSIM) | B100 (PSNR/SSIM) | Urban100 (PSNR/SSIM) |
 | ----- | ----- | ------- | ---------------- | ----------------- | ---------------- | -------------------- |
 | ×2    | VDSR  | CNN     | 37.53/0.9587     | 33.03/0.9124      | 31.90/0.8960     | 30.76/0.9140         |
-|       |       | ANN [4] | 37.37/0.9575     | 32.91/0.9112      | 31.82/0.8947     | 30.48/0.9099         |
+|       |       | ANN     | 37.37/0.9575     | 32.91/0.9112      | 31.82/0.8947     | 30.48/0.9099         |
 |       | EDSR  | CNN     | 38.11/0.9601     | 33.92/0.9195      | 32.32/0.9013     | 32.93/0.9351         |
 |       |       | ANN     | 37.92/0.9589     | 33.82/0.9183      | 32.23/0.9000     | 32.63/0.9309         |
 | ×3    | VDSR  | CNN     | 33.66/0.9213     | 29.77/0.8314      | 28.82/0.7976     | 27.14/0.8279         |
@@ -57,7 +59,33 @@ Super-Resolution results on several SR datasets.
 |       | EDSR  | CNN     | 32.46/0.8968     | 28.80/0.7876      | 27.71/0.7420     | 26.64/0.8033         |
 |       |       | ANN     | 32.13/0.8864     | 28.57/0.7800      | 27.58/0.7368     | 26.33/0.7874         |
 
-*ShiftAddNet [3] used different training setting.
+Adversarial robustness on CIFAR-10 under white-box attacks without adversarial training.[5]
+
+
+| Model | Method | Clean | FGSM | BIM7 | PGD7 | MIM5 | RFGSM5| 
+| ----- | ------ | ---- | ----- | ----- | ----- | ----- | ----- |
+| ResNet-20 | CNN | 92.68 | 16.33 | 0.00 | 0.00 | 0.01 | 0.00 |
+|       | ANN | 91.72 | 18.42 | 0.00 | 0.00 | 0.04 | 0.00 |
+|       | CNN-R | 90.62 | 17.23 | 3.46 | 3.67 | 4.23 | 0.06 |
+|       | ANN-R | 90.95 | 29.93 | 29.30 | 29.72 | 32.25 | 3.38 |
+|       | ANN-R-AWN | 90.55 | 45.93 | 42.62 | 43.39 | 46.52 | 18.36 |
+|  |  |  |  |  |  |  |  |
+| ResNet-32 | CNN | 92.78 | 23.55 | 0.00 | 0.01 | 0.10 | 0.00 |
+|       | ANN | 92.48 | 35.85 | 0.03 | 0.11 | 1.04 | 0.02 |
+|       | CNN-R | 91.32 | 20.41 | 5.15 | 5.27 | 6.09 | 0.07 |
+|       | ANN-R | 91.68 | 19.74 | 15.96 | 16.08 | 17.48 | 0.07 |
+|       | ANN-R-AWN | 91.25 | 61.30 | 59.41 | 59.74 | 61.54 | 39.79 |
+
+Comparisons of mAP on PASCAL VOC. [7]
+
+| Model | Backbone | Neck | mAP |
+| ----- | ------ | ---- | ----- |
+| Faster R-CNN | Conv R50 | Conv | 79.5 |
+| FCOS | Conv R50 | Conv | 79.1 |
+| RetinaNet | Conv R50 | Conv | 77.3 |
+| FoveaBox | Conv R50 | Conv | 76.6 |
+| Adder-FCOS | Adder R50 | Adder | 76.5 |
+
 
 [1]  **AdderNet: Do We Really Need Multiplications in Deep Learning?**  *Hanting Chen, Yunhe Wang, Chunjing Xu, Boxin Shi, Chao Xu, Qi Tian, Chang Xu.* **CVPR, 2020. (Oral)**
 
@@ -65,7 +93,13 @@ Super-Resolution results on several SR datasets.
 
 [3] **ShiftAddNet: A Hardware-Inspired Deep Network.** *Haoran You, Xiaohan Chen, Yongan Zhang, Chaojian Li, Sicheng Li, Zihao Liu, Zhangyang Wang, Yingyan Lin.* **NeurIPS, 2020.**
 
-[4] **AdderSR: Towards Energy Efficient Image Super-Resolution**. *Dehua Song, Yunhe Wang, Hanting Chen, Chang Xu, Chunjing Xu, Dacheng Tao*. **Arxiv, 2020.** 
+[4] **AdderSR: Towards Energy Efficient Image Super-Resolution**. *Dehua Song, Yunhe Wang, Hanting Chen, Chang Xu, Chunjing Xu, Dacheng Tao*. **CVPR, 2021. (Oral)** 
+
+[5] **Towards Stable and Robust AdderNets**. *Minjing Dong, Yunhe Wang, Xinghao Chen, Chang Xu*. **NeurIPS, 2021.** 
+
+[6] **Handling Long-tailed Feature Distribution in AdderNets**. *Minjing Dong, Yunhe Wang, Xinghao Chen, Chang Xu*. **NeurIPS, 2021.** 
+
+[7] **An Empirical Study of Adder Neural Networks for Object Detection**. *Xinghao Chen, Chang Xu, Minjing Dong, Chunjing Xu, Yunhe Wang*. **NeurIPS, 2021.** 
 
 ## Requirements
 
