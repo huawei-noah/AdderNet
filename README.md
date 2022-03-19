@@ -13,14 +13,14 @@ Classification results on CIFAR-10 and CIFAR-100 datasets.
 
 | Model     | Method           | CIFAR-10 | CIFAR-100 |
 | --------- | ---------------- | -------- | --------- |
-| VGG-small | ANN [1]          | 93.72%   | 72.64%    |
-|           | PKKD ANN [2]     | 95.03%   | 76.94%    |
-|           | SLAC ANN [7]     | 93.96%   | 73.63%    |
+| VGG-small | ANN           | 93.72%   | 72.64%    |
+|           | PKKD ANN      | 95.03%   | 76.94%    |
+|           | SLAC ANN      | 93.96%   | 73.63%    |
 |           |                  |          |           |
 | ResNet-20 | ANN              | 92.02%   | 67.60%    |
 |           | PKKD ANN         | 92.96%   | 69.93%    |
 |           | SLAC ANN         | 92.29%   | 68.31%    |
-|           | ShiftAddNet* [3] | 89.32%(160epoch)   | -         |
+|           | ShiftAddNet* | 89.32%(160epoch)   | -         |
 |           |                  |          |           |
 | ResNet-32 | ANN              | 93.01%   | 69.17%    |
 |           | PKKD ANN         | 93.62%   | 72.41%    |
@@ -31,18 +31,18 @@ Classification results on ImageNet dataset.
 | Model     | Method       | Top-1 Acc | Top-5 Acc |
 | --------- | ------------ | --------- | --------- |
 | ResNet-18 | CNN          | 69.8%     | 89.1%     |
-|           | ANN [1]      | 67.0%     | 87.6%     |
-|           | PKKD ANN [2] | 68.8%     | 88.6%     |
-|           | SLAC ANN [7] | 67.7%     | 87.9%     |
+|           | ANN     | 67.0%     | 87.6%     |
+|           | PKKD ANN  | 68.8%     | 88.6%     |
+|           | SLAC ANN  | 67.7%     | 87.9%     |
 |           |              |           |           |
 | ResNet-50 | CNN          | 76.2%     | 92.9%     |
 |           | ANN          | 74.9%     | 91.7%     |
 |           | PKKD ANN     | 76.8%     | 93.3%     |
-|           | SLAC ANN [7] | 75.3%     | 92.6%     |
+|           | SLAC ANN  | 75.3%     | 92.6%     |
 
-*ShiftAddNet [3] used different training setting.
+*ShiftAddNet used different training setting.
 
-Super-Resolution results on several SR datasets.[4]
+Super-Resolution results on several SR datasets.
 
 | Scale | Model | Method  | Set5 (PSNR/SSIM) | Set14 (PSNR/SSIM) | B100 (PSNR/SSIM) | Urban100 (PSNR/SSIM) |
 | ----- | ----- | ------- | ---------------- | ----------------- | ---------------- | -------------------- |
@@ -59,7 +59,7 @@ Super-Resolution results on several SR datasets.[4]
 |       | EDSR  | CNN     | 32.46/0.8968     | 28.80/0.7876      | 27.71/0.7420     | 26.64/0.8033         |
 |       |       | ANN     | 32.13/0.8864     | 28.57/0.7800      | 27.58/0.7368     | 26.33/0.7874         |
 
-Adversarial robustness on CIFAR-10 under white-box attacks without adversarial training.[5]
+Adversarial robustness on CIFAR-10 under white-box attacks without adversarial training.
 
 
 | Model | Method | Clean | FGSM | BIM7 | PGD7 | MIM5 | RFGSM5| 
@@ -76,7 +76,7 @@ Adversarial robustness on CIFAR-10 under white-box attacks without adversarial t
 |       | ANN-R | 91.68 | 19.74 | 15.96 | 16.08 | 17.48 | 0.07 |
 |       | ANN-R-AWN | 91.25 | 61.30 | 59.41 | 59.74 | 61.54 | 39.79 |
 
-Comparisons of mAP on PASCAL VOC. [7]
+Comparisons of mAP on PASCAL VOC.
 
 | Model | Backbone | Neck | mAP |
 | ----- | ------ | ---- | ----- |
@@ -86,20 +86,6 @@ Comparisons of mAP on PASCAL VOC. [7]
 | FoveaBox | Conv R50 | Conv | 76.6 |
 | Adder-FCOS | Adder R50 | Adder | 76.5 |
 
-
-[1]  **AdderNet: Do We Really Need Multiplications in Deep Learning?**  *Hanting Chen, Yunhe Wang, Chunjing Xu, Boxin Shi, Chao Xu, Qi Tian, Chang Xu.* **CVPR, 2020. (Oral)**
-
-[2] **Kernel Based Progressive Distillation for Adder Neural Networks**. *Yixing Xu, Chang Xu, Xinghao Chen, Wei Zhang, Chunjing XU, Yunhe Wang.* **NeurIPS, 2020. (Spotlight)**
-
-[3] **ShiftAddNet: A Hardware-Inspired Deep Network.** *Haoran You, Xiaohan Chen, Yongan Zhang, Chaojian Li, Sicheng Li, Zihao Liu, Zhangyang Wang, Yingyan Lin.* **NeurIPS, 2020.**
-
-[4] **AdderSR: Towards Energy Efficient Image Super-Resolution**. *Dehua Song, Yunhe Wang, Hanting Chen, Chang Xu, Chunjing Xu, Dacheng Tao*. **CVPR, 2021. (Oral)** 
-
-[5] **Towards Stable and Robust AdderNets**. *Minjing Dong, Yunhe Wang, Xinghao Chen, Chang Xu*. **NeurIPS, 2021.** 
-
-[6] **Handling Long-tailed Feature Distribution in AdderNets**. *Minjing Dong, Yunhe Wang, Xinghao Chen, Chang Xu*. **NeurIPS, 2021.** 
-
-[7] **An Empirical Study of Adder Neural Networks for Object Detection**. *Xinghao Chen, Chang Xu, Minjing Dong, Chunjing Xu, Yunhe Wang*. **NeurIPS, 2021.** 
 
 ## Requirements
 
